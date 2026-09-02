@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nadi - PHC Dashboard</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body class="min-h-screen text-on-surface bg-background antialiased font-body-md">
+    <header class="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between border-b border-surface-container">
+      <div class="flex items-center gap-3">
+        <span class="text-2xl font-bold text-primary tracking-tight">Nadi</span>
+        <span class="text-xs uppercase font-semibold tracking-wider text-on-surface-variant bg-surface-container px-3 py-1 rounded-full flex items-center gap-1">
+          <span class="material-symbols-outlined text-[14px]">local_hospital</span> PHC Operational Command
+        </span>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="/pages/asha/dashboard.html" class="rounded-full border border-surface-container-high px-4 py-2 text-sm font-semibold text-primary hover:bg-surface-container transition-all">ASHA Portal</a>
+        <a href="/pages/mother/dashboard.html" class="rounded-full bg-primary text-on-primary px-5 py-2 text-sm font-semibold hover:bg-secondary transition-all shadow-sm">Mother Portal</a>
+      </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-8 space-y-6">
+      <!-- Top Metrics -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="nadi-card p-6">
+          <div class="flex items-center justify-between text-on-surface-variant mb-2">
+            <span class="text-xs uppercase tracking-wider font-semibold">Total Mothers</span>
+            <span class="material-symbols-outlined text-primary">groups</span>
+          </div>
+          <div data-metric="total" class="text-4xl font-extrabold text-primary">42</div>
+        </div>
+        <div class="nadi-card p-6">
+          <div class="flex items-center justify-between text-on-surface-variant mb-2">
+            <span class="text-xs uppercase tracking-wider font-semibold">Stable (Green)</span>
+            <span class="material-symbols-outlined text-secondary">check_circle</span>
+          </div>
+          <div data-metric="green" class="text-4xl font-extrabold text-secondary">32</div>
+        </div>
+        <div class="nadi-card p-6">
+          <div class="flex items-center justify-between text-on-surface-variant mb-2">
+            <span class="text-xs uppercase tracking-wider font-semibold">Follow-up (Amber)</span>
+            <span class="material-symbols-outlined text-[#d97706]">schedule</span>
+          </div>
+          <div data-metric="amber" class="text-4xl font-extrabold text-[#d97706]">7</div>
+        </div>
+        <div class="nadi-card p-6 border-error/20 bg-error-container/10">
+          <div class="flex items-center justify-between text-error mb-2">
+            <span class="text-xs uppercase tracking-wider font-semibold">Urgent (Red)</span>
+            <span class="material-symbols-outlined text-error">warning</span>
+          </div>
+          <div data-metric="red" class="text-4xl font-extrabold text-error">3</div>
+        </div>
+      </div>
+
+      <!-- Main Grid Sections -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <section class="nadi-card p-6">
+          <div class="flex justify-between items-center mb-5 pb-4 border-b border-surface-container">
+            <h2 class="text-xl font-bold text-primary flex items-center gap-2">
+              <span class="material-symbols-outlined text-error">notification_important</span> Open Escalations
+            </h2>
+            <span class="text-xs text-on-surface-variant font-semibold">Updated 2m ago</span>
+          </div>
+          <div class="space-y-3">
+            <a href="/pages/asha/urgent-case.html" class="block rounded-2xl bg-surface-container-low p-4 hover:bg-surface-container transition-all border border-surface-container-high">
+              <div class="flex justify-between items-center">
+                <strong class="text-primary text-base">Meena Sharma</strong>
+                <span class="nadi-status-badge nadi-status-red">RED</span>
+              </div>
+              <p class="text-sm text-on-surface-variant mt-2 flex items-center gap-1">
+                <span class="material-symbols-outlined text-[16px] text-error">priority_high</span> High fever, increased bleeding post day 11
+              </p>
+            </a>
+            <div class="rounded-2xl bg-surface-container-low p-4 border border-surface-container-high">
+              <div class="flex justify-between items-center">
+                <strong class="text-primary text-base">Ritu Nair</strong>
+                <span class="nadi-status-badge nadi-status-amber">AMBER</span>
+              </div>
+              <p class="text-sm text-on-surface-variant mt-2 flex items-center gap-1">
+                <span class="material-symbols-outlined text-[16px] text-[#d97706]">mood_bad</span> Emotional distress check-in follow-up
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="nadi-card p-6">
+          <div class="flex justify-between items-center mb-5 pb-4 border-b border-surface-container">
+            <h2 class="text-xl font-bold text-primary flex items-center gap-2">
+              <span class="material-symbols-outlined text-secondary">domain</span> Facility Information
+            </h2>
+            <span class="nadi-status-badge nadi-status-green">Operational</span>
+          </div>
+          <div class="rounded-2xl bg-surface-container-low p-5 border border-surface-container-high space-y-3">
+            <div>
+              <h3 class="font-bold text-lg text-primary">Kaveri Primary Health Centre (PHC)</h3>
+              <p class="text-sm text-on-surface-variant mt-1">Community maternal health team in Kaveri sector.</p>
+            </div>
+            <div class="pt-3 border-t border-surface-container-highest grid grid-cols-2 gap-4 text-sm">
+              <div>
+                <span class="text-on-surface-variant block text-xs uppercase tracking-wider">Active ASHAs</span>
+                <span class="font-bold text-primary text-lg">12 Field Workers</span>
+              </div>
+              <div>
+                <span class="text-on-surface-variant block text-xs uppercase tracking-wider">Today's Visits</span>
+                <span class="font-bold text-primary text-lg">4 Scheduled</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/demo-wiring.js"></script>
+  </body>
+</html>

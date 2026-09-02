@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nadi - Sign In & Register</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body class="min-h-screen bg-background text-on-surface flex items-center justify-center p-6 antialiased font-body-md">
+    <main class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+      <section class="md:col-span-5 nadi-card p-8 space-y-6">
+        <div>
+          <div class="text-3xl font-bold text-primary tracking-tight flex items-center gap-2 mb-1">
+            Nadi <span class="h-2.5 w-2.5 rounded-full bg-secondary nadi-pulse"></span>
+          </div>
+          <p class="text-sm font-semibold text-on-surface-variant">Postpartum Continuity Platform</p>
+        </div>
+        <p class="text-body-md text-on-surface-variant leading-relaxed">
+          Connecting mothers, ASHAs, and primary health centres through the 42-day postpartum continuum.
+        </p>
+        <div class="pt-4 border-t border-surface-container space-y-3">
+          <a href="/pages/mother/dashboard.html" class="flex items-center gap-3 p-3 rounded-xl bg-surface-container-low text-primary font-semibold hover:bg-surface-container transition-all text-sm">
+            <span class="material-symbols-outlined text-secondary">face_3</span> Demo Mother Portal
+          </a>
+          <a href="/pages/asha/dashboard.html" class="flex items-center gap-3 p-3 rounded-xl bg-surface-container-low text-primary font-semibold hover:bg-surface-container transition-all text-sm">
+            <span class="material-symbols-outlined text-secondary">diversity_1</span> Demo ASHA Portal
+          </a>
+          <a href="/pages/phc/dashboard.html" class="flex items-center gap-3 p-3 rounded-xl bg-surface-container-low text-primary font-semibold hover:bg-surface-container transition-all text-sm">
+            <span class="material-symbols-outlined text-secondary">local_hospital</span> Demo PHC Portal
+          </a>
+        </div>
+        <div class="pt-2">
+          <a href="/pages/landing/" class="inline-flex items-center gap-1.5 text-sm font-semibold text-secondary hover:text-primary transition-colors">
+            <span class="material-symbols-outlined text-[18px]">arrow_back</span> Return to landing page
+          </a>
+        </div>
+      </section>
+
+      <section class="md:col-span-7 nadi-card p-8 space-y-6">
+        <div>
+          <h2 class="text-2xl font-bold text-primary mb-1">Sign In</h2>
+          <p class="text-xs text-on-surface-variant">Access your Nadi care portal account.</p>
+        </div>
+        <form id="login-form" class="space-y-4">
+          <div>
+            <label class="block text-xs uppercase font-semibold text-on-surface-variant mb-1">Email Address</label>
+            <input name="email" type="email" required autocomplete="email" class="w-full rounded-xl border border-surface-container-high bg-surface-container-lowest px-4 py-3 text-primary focus:border-secondary focus:ring-1 focus:ring-secondary transition-all" />
+          </div>
+          <div>
+            <label class="block text-xs uppercase font-semibold text-on-surface-variant mb-1">Password</label>
+            <input name="password" type="password" required autocomplete="current-password" class="w-full rounded-xl border border-surface-container-high bg-surface-container-lowest px-4 py-3 text-primary focus:border-secondary focus:ring-1 focus:ring-secondary transition-all" />
+          </div>
+          <button type="submit" class="w-full rounded-full bg-primary text-on-primary py-3.5 px-6 font-bold hover:bg-secondary transition-all shadow-sm">
+            Sign In
+          </button>
+        </form>
+
+        <div class="relative my-6 text-center">
+          <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-surface-container-high"></div></div>
+          <span class="relative bg-white px-3 text-xs uppercase text-on-surface-variant font-semibold">Or Register</span>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-bold text-primary mb-1">Create Mother Account</h2>
+          <p class="text-xs text-on-surface-variant mb-4">Register a new profile for daily postpartum check-ins.</p>
+          <form id="register-form" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs uppercase font-semibold text-on-surface-variant mb-1">Full Name</label>
+              <input name="name" required autocomplete="name" class="w-full rounded-xl border border-surface-container-high bg-surface-container-lowest px-4 py-2.5 text-primary focus:border-secondary transition-all" />
+            </div>
+            <div>
+              <label class="block text-xs uppercase font-semibold text-on-surface-variant mb-1">Email</label>
+              <input name="email" type="email" required autocomplete="email" class="w-full rounded-xl border border-surface-container-high bg-surface-container-lowest px-4 py-2.5 text-primary focus:border-secondary transition-all" />
+            </div>
+            <div>
+              <label class="block text-xs uppercase font-semibold text-on-surface-variant mb-1">Password</label>
+              <input name="password" type="password" minlength="8" required autocomplete="new-password" class="w-full rounded-xl border border-surface-container-high bg-surface-container-lowest px-4 py-2.5 text-primary focus:border-secondary transition-all" />
+            </div>
+            <div>
+              <label class="block text-xs uppercase font-semibold text-on-surface-variant mb-1">Phone</label>
+              <input name="phone" type="tel" class="w-full rounded-xl border border-surface-container-high bg-surface-container-lowest px-4 py-2.5 text-primary focus:border-secondary transition-all" />
+            </div>
+            <div>
+              <label class="block text-xs uppercase font-semibold text-on-surface-variant mb-1">Delivery Date</label>
+              <input name="deliveryDate" type="date" required class="w-full rounded-xl border border-surface-container-high bg-surface-container-lowest px-4 py-2.5 text-primary focus:border-secondary transition-all" />
+            </div>
+            <div>
+              <label class="block text-xs uppercase font-semibold text-on-surface-variant mb-1">Village / Sector</label>
+              <input name="village" class="w-full rounded-xl border border-surface-container-high bg-surface-container-lowest px-4 py-2.5 text-primary focus:border-secondary transition-all" />
+            </div>
+            <input name="role" type="hidden" value="mother" />
+            <div class="sm:col-span-2 pt-2">
+              <button type="submit" class="w-full rounded-full bg-secondary text-on-secondary py-3.5 px-6 font-bold hover:bg-primary transition-all shadow-sm">
+                Create Account
+              </button>
+            </div>
+          </form>
+        </div>
+        <div id="auth-message" role="alert" aria-live="polite" class="mt-2 text-sm font-semibold"></div>
+      </section>
+    </main>
+    <script src="/js/api.js"></script>
+    <script src="/js/demo-wiring.js"></script>
+  </body>
+</html>

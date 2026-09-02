@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nadi - Care Timeline</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body class="min-h-screen text-on-surface bg-background antialiased font-body-md">
+    <header class="max-w-5xl mx-auto px-6 py-6 flex items-center justify-between border-b border-surface-container">
+      <div class="flex items-center gap-3">
+        <span class="text-2xl font-bold text-primary tracking-tight">Nadi</span>
+        <span class="text-xs uppercase font-semibold tracking-wider text-on-surface-variant bg-surface-container px-3 py-1 rounded-full">Care Timeline</span>
+      </div>
+      <a href="/pages/mother/dashboard.html" class="inline-flex items-center gap-2 rounded-full bg-primary text-on-primary px-5 py-2.5 text-sm font-semibold hover:bg-secondary transition-all shadow-sm">
+        <span class="material-symbols-outlined text-[18px]">arrow_back</span>
+        Dashboard
+      </a>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-6 py-8">
+      <section class="nadi-card p-8 mb-8">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-6 border-b border-surface-container">
+          <div>
+            <h1 class="text-3xl font-bold text-primary mb-1">Meena Sharma</h1>
+            <p class="text-body-md text-on-surface-variant">Postpartum Day 11 Journey</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="nadi-status-badge nadi-status-amber">Action Needed Today</span>
+          </div>
+        </div>
+
+        <div id="timeline" class="space-y-6 relative pl-2"></div>
+      </section>
+    </main>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/demo-wiring.js"></script>
+    <script>
+      const timelineData = [
+        { day: 'Day 1', status: 'green', detail: 'Delivery completed safely. Initial post-natal recovery plan and hydration guide shared.' },
+        { day: 'Day 7', status: 'green', detail: 'ASHA home visit completed. Mother reported stable vitals and healthy progress.' },
+        { day: 'Day 11', status: 'red', detail: 'Daily check-in flagged fever and increased bleeding. ASHA & PHC team alerted immediately.' },
+        { day: 'Day 14', status: 'amber', detail: 'Scheduled home follow-up visit to review recovery and symptom improvement.' },
+        { day: 'Day 21', status: 'green', detail: 'Intermediate 3-week milestone check. Vitals stable; lactation support ongoing.' },
+        { day: 'Day 42', status: 'green', detail: 'Final 6-week continuum milestone. Mother transitioned to routine maternal health.' }
+      ];
+
+      const timeline = document.getElementById('timeline');
+      timeline.innerHTML = timelineData.map((item) => `
+        <div class="flex gap-6 items-start relative pb-6 border-l-2 border-surface-container-high pl-6 last:pb-0">
+          <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full ${item.status === 'red' ? 'bg-[#ba1a1a] ring-4 ring-[#ffdad6]' : item.status === 'amber' ? 'bg-[#d97706] ring-4 ring-[#fff1cc]' : 'bg-[#186b4b] ring-4 ring-[#dff7ea]'}"></div>
+          <div class="flex-1 nadi-card p-5">
+            <div class="flex items-center justify-between gap-4 mb-2">
+              <h2 class="text-lg font-bold text-primary">${item.day}</h2>
+              <span class="nadi-status-badge nadi-status-${item.status}">${item.status === 'red' ? 'Alert' : item.status === 'amber' ? 'Review' : 'Stable'}</span>
+            </div>
+            <p class="text-body-md text-on-surface-variant leading-relaxed">${item.detail}</p>
+          </div>
+        </div>
+      `).join('');
+    </script>
+  </body>
+</html>

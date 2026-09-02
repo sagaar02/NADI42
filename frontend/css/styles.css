@@ -1,0 +1,81 @@
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: #f2fcf5;
+  color: #141d1a;
+}
+
+button, a {
+  transition: all 0.2s ease;
+}
+
+.nadi-card {
+  border-radius: 24px;
+  background: #ffffff;
+  border: 1px solid rgba(112, 121, 116, 0.12);
+  box-shadow: 0 4px 20px rgba(23, 32, 28, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.nadi-card:hover {
+  box-shadow: 0 8px 30px rgba(23, 32, 28, 0.08);
+}
+
+.nadi-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 999px;
+  padding: 0.35rem 0.85rem;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.nadi-status-red {
+  background: #ffdad6;
+  color: #93000a;
+  border: 1px solid rgba(147, 0, 10, 0.15);
+}
+
+.nadi-status-amber {
+  background: #fff1cc;
+  color: #92400e;
+  border: 1px solid rgba(146, 64, 14, 0.15);
+}
+
+.nadi-status-green {
+  background: #dff7ea;
+  color: #1d4f3f;
+  border: 1px solid rgba(29, 79, 63, 0.15);
+}
+
+.nadi-pulse {
+  animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.8); opacity: 0.6; }
+  80%, 100% { transform: scale(2.2); opacity: 0; }
+}
+
+/* Radio Option Selection Visual States */
+label.option-card:has(input:checked) {
+  border-color: #186b4b !important;
+  background-color: #ffffff !important;
+  box-shadow: 0 4px 20px rgba(24, 107, 75, 0.12) !important;
+}
+
+label.option-card:has(input:checked) .radio-circle {
+  border-color: #186b4b !important;
+  background-color: #186b4b !important;
+}
+
+label.option-card:has(input:checked) .radio-circle .check-icon {
+  opacity: 1 !important;
+}
+
+label.option-card:has(input:checked) .option-title {
+  color: #186b4b !important;
+}
+

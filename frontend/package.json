@@ -1,0 +1,13 @@
+{
+  "name": "nadi42-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "start": "vite"
+  },
+  "devDependencies": {
+    "vite": "^6.1.0"
+  }
+}
