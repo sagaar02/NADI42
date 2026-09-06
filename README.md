@@ -93,40 +93,7 @@ Risk engine (deterministic rules, not an LLM)
 
 The risk engine is a deterministic rules engine, not an LLM — this keeps the safety-critical decision auditable. AI is used only to assist communication (translation, summarization, message generation), never to make the clinical call.
 
-Example rule logic:
 
-```ts
-type RiskLevel = "green" | "amber" | "red";
-
-interface CheckIn {
-  bleeding: "normal" | "increasing" | "heavy";
-  fever: boolean;
-  severeHeadache: boolean;
-  visionChanges: boolean;
-  emotionalDistress: boolean;
-  feedingDifficulty: boolean;
-}
-
-function calculateRisk(checkIn: CheckIn): RiskLevel {
-  if (
-    checkIn.bleeding === "heavy" ||
-    checkIn.severeHeadache ||
-    checkIn.visionChanges ||
-    checkIn.fever
-  ) {
-    return "red";
-  }
-
-  if (
-    checkIn.bleeding === "increasing" ||
-    checkIn.emotionalDistress ||
-    checkIn.feedingDifficulty
-  ) {
-    return "amber";
-  }
-
-  return "green";
-}
 ```
 
 > Clinical rules used in a real deployment must be validated by qualified maternal-health professionals and aligned with applicable Indian clinical protocols. The above is a hackathon/demo simplification.
